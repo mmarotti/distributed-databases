@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  hive4:
+    container_name: hive4
+    image: apache/hive:4.0.1
+    ports:
+      - "10000:10000"
+      - "10002:10002"
+    environment:
+      - SERVICE_NAME=hiveserver2
+      - HIVE_SITE_CONF_javax_jdo_option_ConnectionURL=jdbc:derby:;databaseName=/opt/hive/data/metastore_db;create=true
+    restart: unless-stopped
