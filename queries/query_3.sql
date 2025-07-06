@@ -5,14 +5,14 @@ SELECT
 FROM
     crime c
 JOIN
-    time t ON c.time_id = t.id
+    `time` t ON c.time_id = t.id
 JOIN
     segment s ON c.segment_id = s.id
 JOIN
-    vertice v ON s.start_vertice_id = v.id -- start ou end?
+    vertice v ON s.start_vertice_id = v.id
 JOIN
     neighborhood n ON v.neighborhood_id = n.id
 WHERE
-    n.name = 'SANTA EFIGÊNIA' AND t.year = 2015
+    n.name = 'Santa Efig�nia' AND t.year = 2015
 GROUP BY
-    n.name;
+    n.name

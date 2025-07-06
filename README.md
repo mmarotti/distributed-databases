@@ -1,30 +1,28 @@
-# Parallelism on Databases Project
+# Distributed Databases Project
 
-This setup demonstrates how to:
+## Setup Instructions
 
-1. Run HiveServer2 in Docker
-2. Connect using Python with PyHive
+### 1. Install Python Requirements
 
-## Prerequisites
-- Docker
-- Python 3.7+
-- **System Dependencies**:
-  - Ubuntu/Debian: `sudo apt install libsasl2-dev python3-dev`
-  - MacOS: `brew install cyrus-sasl`
-
-## Quick Start
-
-### 1. Start Hive Container
-#### Start container in background
-docker compose up -d
-
-#### Wait 1-2 minutes for Hive to initialize (check logs if needed)
-docker compose logs hive4
-
-### 2. Run Python Code
-
-#### Install required packages
+```bash
 pip install -r requirements.txt
+```
 
-#### Run
-python main.py
+### 2. Start Hive with Docker Compose
+
+```bash
+docker-compose up -d
+```
+
+This will start the Hive server and mount the `./data` directory into the container.
+
+### 3. Load Data into Hive
+
+Run the script to create the database and load the CSV data:
+
+```bash
+cd scripts/create_database_and_load
+bash run_create_database_and_load.sh
+```
+
+This will connect to Hive and load the data from the `/data` directory into the appropriate tables.

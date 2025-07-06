@@ -4,6 +4,6 @@ SELECT
 FROM
     crime c
 JOIN
-    time t ON c.time_id = t.id
+    `time` t ON c.time_id = t.id
 WHERE
-    t.year = 2017;
+    t.year = 2017

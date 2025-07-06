@@ -13,7 +13,7 @@ SELECT
 FROM
     crime c
 JOIN
-    time t ON c.time_id = t.id
+    `time` t ON c.time_id = t.id
 JOIN
     segment s ON c.segment_id = s.id
 WHERE
@@ -21,4 +21,4 @@ WHERE
 GROUP BY
     s.id
 ORDER BY
-    total_crime_incidents DESC;
+    total_crime_incidents DESC
